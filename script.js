@@ -49,3 +49,28 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+function playGame() {
+  // Reset scores at the start
+  humanScore = 0;
+  computerScore = 0;
+
+  // Play 5 rounds
+  for (let i = 1; i <= 5; i++) {
+    console.log(`\nRound ${i}`);
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+  }
+
+  // Declare the final result
+  console.log("\nFINAL RESULTS:");
+  if (humanScore > computerScore) {
+    console.log("🎉 You won the game!");
+  } else if (computerScore > humanScore) {
+    console.log("😞 You lost the game!");
+  } else {
+    console.log("🤝 It's a tie overall!");
+  }
+}
+playGame();
